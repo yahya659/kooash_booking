@@ -26,13 +26,4 @@ Bootstrap 5
 
 Blade Templating
 
-⚙️ التثبيت
-git clone https://github.com/your-username/kosh-wedding-platform.git
-cd kosh-wedding-platform
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
-
 تم التطوير بواسطة [yahya alhaifi] ❤️
