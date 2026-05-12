@@ -83,46 +83,52 @@
                 </div><!-- End Section Title -->
 
                 {{-- عرض جميع الكوش --}}
-              <div class="container">
-    <div class="row">
-        @foreach($koash as $k)
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm border-0">
-                    <img src="{{ asset('uploads/kosh/' . $k->images) }}" class="card-img-top kosh-img"
-                        alt="{{ $k->name }}" style="height: 250px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column text-end" dir="rtl">
-                        <h5 class="card-title fw-bold">{{ $k->name }}</h5>
-                        <p class="card-text text-muted small">
-                            {{ $k->description ?? 'لا يوجد وصف متاح' }}
-                        </p>
-                        <p class="card-text mb-2">
-                            <strong>السعر: </strong>
-                            <span class="text-primary">{{ number_format($k->price, 2) }} ريال</span>
-                        </p>
-                        <p class="card-text mb-3">
-                            <strong>الحالة: </strong>
-                            <span class="badge bg-success">متاحة</span>
-                        </p>
-                        <!-- زر الحجز -->
-                        <a href="/bookkoash/{{ $k->id }}" class="btn btn-outline-primary mt-auto w-100">
-                            <i class="fa fa-calendar-plus ms-1"></i> حجز الكوشة
-                        </a>
+                <div class="container">
+                    <div class="row">
+                        @foreach($koash as $k)
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="{{ asset('uploads/kosh/' . $k->images) }}" class="card-img-top kosh-img"
+                                        alt="{{ $k->name }}" style="height: 250px; object-fit: cover;">
+                                    <div class="card-body d-flex flex-column text-end" dir="rtl">
+                                        <h5 class="card-title fw-bold">{{ $k->name }}</h5>
+                                        <p class="card-text text-muted small">
+                                            {{ $k->description ?? 'لا يوجد وصف متاح' }}
+                                        </p>
+                                        <p class="card-text mb-2">
+                                            <strong>السعر: </strong>
+                                            <span class="text-primary">{{ number_format($k->price, 2) }} ريال</span>
+                                        </p>
+                                        <p class="card-text mb-3">
+                                            <strong>الحالة: </strong>
+                                            @if($k->status == 'available')
+                                                <span class="badge bg-success">متاح</span>
+                                                <a href="/bookkoash/{{ $k->id }}" class="btn btn-outline-primary mt-auto w-100">
+                                                    <i class="fa fa-calendar-plus ms-1"></i> حجز الكوشة
+                                                </a>
+                                            @else
+                                                <span class="badge bg-secondary">غير متاح</span>
+                                                
+                                            @endif
+                                        </p>
+                                        <!-- زر الحجز -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $koash->links() }} {{-- رابط الصفحات --}}
                     </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
-
-    <div class="d-flex justify-content-center mt-4">
-        {{ $koash->links() }} {{-- رابط الصفحات --}}
-    </div>
-</div>
 
 
             </section><!-- /Services Section -->
 
             <!-- About Section -->
-            <section id="about" class="about section" >
+            <section id="about" class="about section">
 
                 <div class="content">
                     <div class="container">

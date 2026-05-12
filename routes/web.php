@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\KoshController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\site\UserController as setUserController  ;
+use App\Http\Controllers\site\WeddinghallsController;
+use Symfony\Component\Routing\Route as RoutingRoute;
 
 // زائر الموقع
 Route::get('/', [setUserController::class,'koash']);
@@ -13,7 +15,8 @@ Route::post('/storebookkoash/{id}', action: [setUserController::class,'storebook
 Route::get('/about', function () {
     return view('site.about');
 });
-
+// صفحه الصالات
+Route::get('/weddinghalls',[WeddinghallsController::class,'weddinghalls']);
 
 Route::get('/services', function () {
     return view('site.services');

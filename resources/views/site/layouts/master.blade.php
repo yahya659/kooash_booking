@@ -72,10 +72,27 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="/weddinghalls" class="{{ request()->is('Contact') ? 'active' : '' }}">
+
+                        صالات المناسبات
+                    </a>
+                </li>
+
 
                 @guest
-                    <li><a href="{{ route('login') }}" class="btn btn-outline-primary btn-sm">تسجيل الدخول</a></li>
-                    <li><a href="{{ route('register') }}" class="btn btn-primary btn-sm">إنشاء حساب</a></li>
+                    <li class="nav-item me-2">
+                        <a href="{{ route('login') }}"
+                            class="btn btn-outline-primary rounded-pill px-4 fw-semibold shadow-sm">
+                            <i class="fa fa-sign-in-alt ms-1"></i> تسجيل الدخول
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="btn btn-primary rounded-pill px-4 fw-semibold shadow">
+                            <i class="fa fa-user-plus ms-1"></i> إنشاء حساب
+                        </a>
+                    </li>
                 @endguest
 
                 @auth
