@@ -14,7 +14,6 @@
 ![صورة المشروع 1](/public/assets/img/5.png)
  
 
-> ضع الصور داخل مجلد `assets/img/` في نفس مستوى README.md لتظهر على GitHub.
 
 ---
 
